@@ -1,0 +1,43 @@
+class Square {
+  int _length;
+  //constructor to initialize the length
+  Square(this._length);
+
+  //getter method to access the private length
+  int get length => _length;
+
+  //setter method to update the length validation
+  set length (int value) {
+    if (value > 0) {
+      _length = value;
+    } else {
+      print("length must be greater than 0");
+    }
+  }
+
+  //method to calcculate area of a square
+  int calculateArea() {
+    return _length * _length;
+  }
+}
+
+class Rectangle extends Square {
+  double width;
+
+  //constructor for rectangle
+  Rectangle(int _length, this.width) : super(_length);
+
+  //method to calculate area of rectangle
+  double calculateRecArea() {
+    return _length * width;
+  }
+}
+
+void main() {
+  //creating instances for square and rectangle
+  Square square = Square(4);
+  Rectangle rectangle = Rectangle(4,8.0);
+
+  print("area of square: ${square.calculateArea()}");
+  print("area of rectangle: ${rectangle.calculateRecArea()}");
+}
